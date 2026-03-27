@@ -1,3 +1,12 @@
+# NaturalStore — Sistema de Produtos Naturais
+
+Projeto acadêmico do professor Silas Santiago **NaturalStore** Simula em console uma loja de produtos naturais.
+
+---
+
+## 📁 Estrutura da Solução
+
+```
 NaturalStore/
 ├── Domain/           
 │   ├── Entities/
@@ -52,3 +61,71 @@ NaturalStore/
 │   └── ClientTests.cs
 │
 └── NaturalStore.sln
+```
+
+---
+
+## Requisitos Atendidos
+
+| Requisito | Status |
+|-----------|--------|
+| Classes: Empresa, Loja, Funcionário, Cliente, Produto, Categoria, Tag, CarrinhoDeCompras | ✅ |
+| CRUD completo para todas as entidades | ✅ |
+| Funcionário com **múltiplas atribuições** (caixa, repositor, gerente, entregador) | ✅ |
+| Cadastro de cliente online (login/senha com hash SHA-256) | ✅ |
+| Gerente pode cadastrar clientes | ✅ |
+| Venda presencial com seleção de caixa | ✅ |
+| Venda online com carrinho de compras | ✅ |
+| Pagamento: crédito, débito (online+presencial), dinheiro (só presencial) | ✅ |
+| Histórico de compras do cliente | ✅ |
+| Relatório de vendas por ano e mês (gerencial) | ✅ |
+| Validação de campos na interface console | ✅ |
+| Menus de navegação no console | ✅ |
+| Dados gerenciados em memória (sem ORM) | ✅ |
+| Projeto de testes unitários XUnit | ✅ |
+| DDD + Clean Architecture | ✅ |
+| Dados iniciais (Seed): 2 lojas, 7 funcionários, 4 produtos | ✅ |
+
+---
+
+## 🚀 Como Executar
+
+### Pré-requisito
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+
+### Rodar o console
+```bash
+cd NaturalStore
+dotnet run --project ConsoleApp
+```
+
+### Rodar os testes
+```bash
+dotnet test Tests
+```
+
+### Compilar a solução completa
+```bash
+dotnet build NaturalStore.sln
+```
+
+---
+
+## 👤 Login de teste (seed)
+- **Login:** `joao`  
+- **Senha:** `123456`
+
+---
+
+## 🏗️ Arquitetura
+
+```
+ConsoleApp  →  Business (Services)  →  Domain (Entities + Interfaces)
+                     ↑
+              Infrastructure (Repositories)
+```
+
+- **Domain**: zero dependências externas. Contém as entidades ricas e interfaces.
+- **Infrastructure**: implementa os repositórios em memória.
+- **Business**: orquestra as regras de negócio usando os repositórios via interface.
+- **ConsoleApp**: apenas UI — chama os serviços, nunca acessa repositórios diretamente.

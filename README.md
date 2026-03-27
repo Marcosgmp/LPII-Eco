@@ -129,3 +129,17 @@ ConsoleApp  →  Business (Services)  →  Domain (Entities + Interfaces)
 - **Infrastructure**: implementa os repositórios em memória.
 - **Business**: orquestra as regras de negócio usando os repositórios via interface.
 - **ConsoleApp**: apenas UI — chama os serviços, nunca acessa repositórios diretamente.
+
+
+## 📄 Licença
+
+Este projeto foi desenvolvido para fins educacionais e portfólio profissional.
+
+---
+
+## 👤 Autor
+
+**Marcos Gustavo Mendonça Pereira**  
+Estudante de Ciência da Computação (IFCE)  
+Backend Developer
+
